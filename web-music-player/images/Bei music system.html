@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Bei music system</title>
+<!-- js/css -->
+<style type="text/css">
+    
+   *{margin:0;padding:0;}
+   body{font-size:12px;font-family:微软雅黑；color:#666;}
+   /* top start*/
+   .top{width:100%;height:56px;background:#333;}
+   .top .t_header{width:95%;height:56px;background:#555;margin:0 auto;} 
+   .top .t_header .t_logo{float:left;}
+   .top .t_header .t_desc{float:right;line-height:56px;font-size:20px;}
+   /* top end*/
+   
+   /* content start*/
+   .content{width:100%;height:500px;margin-top:15px;}
+   .content .c_box{padding:10px;}
+    /* left start*/
+   .content .c_box .c_left{width:190px;float:left;}
+   .content .c_box .c_left .l_menu{border-bottom:1px solid #ddd;}
+   .content .c_box .c_left .l_menu ul 
+   li{list-style:none;line-height:60px;font-size:20px;color:#333;padding-left:10px;
+   border-radius:4px;cursor:pointer;}
+   .content .c_box .c_left .l_menu ul li:hover{background:#f0f0f0}
+   .content .c_box .c_left .l_menu ul .l_playnow{background:#f0f0f0;}
+   .content .c_box .c_left .l_add .l_mymusic
+       {float:left;color:#aaa;line-height:40px;padding-left:10px;}
+   .content .c_box .c_left .l_add .l_create
+       {width:18px;height:18px;display:block;float:right;margin-top:12px;margin-right:24px;background:url("images/button.png") no-repeat;background-position:0 -415px;}
+    .content .c_box .c_left .l_add .l_create:hover{background-position:-28px -415px;}   
+        /* left end*/
+        
+        /*middle start*/
+    .content .c_box .c_middle
+        {width:57%;height:500px;float:left;margin-left:30px;}
+    .content .c_box .c_middle .m_box .m_title 
+           {width:100%;height:40px;border-bottom:1px solid #ddd;}
+    .content .c_box .c_middle .m_box .m_title .m_a{float:left;margin:14px 10px 0px 10px;}
+    .content .c_box .c_middle .m_box .m_title .m_info
+    {width:57%;float:left;margin-left:100px;color:#aaa;m}
+    .content .c_box .c_middle .m_box .m_title .m_info .m_t
+         {width:33%;line-height:40px;float:left;}
+    .content .c_box .c_middle .m_box .m_songlist .s_list
+         {width:100%;height:40px;border-bottom:1px solid #ddd;}  
+         .content .c_box .c_middle .m_box .m_songlist .s_list:hover{background:#f5f5f5;}  
+    .content .c_box .c_middle .m_box .m_songlist .s_list .s_choose
+         {float:left;margin:14px 10px 0px 10px;}
+     .content .c_box .c_middle .m_box .m_songlist .s_list .s_number
+          {float:left;margin:16px 10px 0px 10px;}    
+     .content .c_box .c_middle .m_box .m_songlist .s_list .s_info
+           {width:57%;float:left;margin-left:70px;color:#aaa;}
+           .content .c_box .c_middle .m_box .m_songlist .s_list .info
+           {width:57%;float:left;margin-left:63px;color:#aaa;}
+     .content .c_box .c_middle .m_box .m_songlist .s_list .s_info .s_t
+          {width:33%;line-height:40px;float:left;}  
+     .content .c_box .c_middle .m_box .m_songlist .s_list .s_love
+          {width:110px;height:40px;float:right;} 
+      .content .c_box .c_middle .m_box .m_songlist .s_list .s_love .s_icon_like
+      {width:18px;height:18px;display:block;float:left;margin:8px 16px 0 0;} 
+     .content .c_box .c_middle .m_box .m_songlist .s_list .s_love .s_icon_more
+      {width:18px;height:18px;display:block;float:left;margin:8px 16px 0 0;} 
+       .content .c_box .c_middle .m_box .m_songlist .s_list .s_love .s_icon_delete
+      {width:18px;height:18px;display:block;float:left;margin:8px 16px 0 0;}  
+        /*middle end*/
+        
+        /*right start */
+      .content .c_box .c_right
+          {width:240px;height:500px;float:right;margin-right:50px;}
+       .content .c_box .c_right .r_photo{text-align:center;padding-top:15px;margin:0 0 0 0;}
+       .content .c_box .c_right .r_photo img{border-radius:10px;}
+        .content .c_box .c_right .r_btn
+            {width:80px;height:30px;display:block;margin:10px auto;
+            border-radius:5px;background:#F90;text-align:center;line-height:40px;
+            color:#fff;text-decoration:none;font-size:15px;}
+             .content .c_box .c_right .r_btn:hover{background:#F60;}
+        .content .c_box .c_right .r_singword{width:250px;height:60%;overflow:auto}
+         .content .c_box .c_right .r_singword .jspPane{text-align:center;line-height:30px;font-size:12px;font-weight:lighter;}
+        /* right end */
+        
+        
+        /*bottom start*/
+        .b_player
+        {width:100%;height:80px;position:fixed;background:#333;left:0;bottom:0;}
+        .b_player .b_left{width:230px;height:80px;margin-left:20px;float:left;}
+        .b_player .b_left .p_icon
+        {width:30px;height:30px;background:url("images/button.png") 
+        no-repeat;display:block;float:left;margin:25px 0 0 20px;}
+        .b_player .b_left .last_icon{background-position:0px -88px;}
+        .b_player .b_left .last_icon:hover{background-position:-30px -88px;}
+        .b_player .b_left .play_icon{background-position:0px 0px;}
+        .b_player .b_left .play_icon:hover{background-position:-30px 0px;}
+        .b_player .b_left .pause_icon{background-position:0px -30px;display:none;}
+        .b_player .b_left .pause_icon:hover{background-position:-30px -30px;}
+        .b_player .b_left .next_icon{background-position:0px -60px;}
+        .b_player .b_left .next_icon:hover{background-position:-30px -60px;}
+     
+        
+       .b_player .b_left .left_tools .tools{width:20px;height:20px;background:url("images/button.png") no-repeat;
+       display:block;float:left;margin:15px 0 0 40px;}
+       .b_player .b_left .left_tools .t_list{background-position:0px -180px;}
+       .b_player .b_left .left_tools .t_list:hover{background-position:-30px -180px;}
+       .b_player .b_left .left_tools .t_single{background-position:0px -200px;display:none;}
+       .b_player .b_left .left_tools .t_single:hover{background-position:-30px -200px;}
+       .b_player .b_left .left_tools .t_random{background-position:0px -220px;display:none;}
+       .b_player .b_left .left_tools .t_random:hover{background-position:-30px -220px;}
+       
+       .b_player .b_middle{width:55%;height:80px;float:left;}
+       .b_player .b_middle .sing_info{width:100%;height:25px;margin-top:10px;}
+       
+       .b_player .b_middle .sing_info .sing_name{margin-left:30px;font-size:14px;text-decoration:none;color:#fff;float:left;}
+       .b_player .b_middle .sing_info .info_group{float:right;}
+       .b_player .b_middle .sing_info .info_group .group
+       {margin-left:10px;width:20px;height:20px;float:left;display:block;background:url("images/button.png") no-repeat;}
+       .b_player .b_middle .sing_info .info_group .sing_collect{background-position:0 -239px;}
+       .b_player .b_middle .sing_info .info_group .sing_collect:hover{background-position:-28px -239px;}
+       .b_player .b_middle .sing_info .info_group .sing_share{background-position:0 -258px;}
+       .b_player .b_middle .sing_info .info_group .sing_share:hover{background-position:-28px -258px;}
+       .b_player .b_middle .sing_info .info_group .sing_more{margin-right:20px;background-position:0 -277px;}
+       .b_player .b_middle .sing_info .info_group .sing_more:hover{background-position:-28px -277px;}
+       
+       .b_player .b_middle .sing_time{width:100%;height:15px;margin-top:10px;}
+       .b_player .b_middle .sing_time .time_start{float:left;color:#fff;margin-left:30px;margin-top:1px;}
+       .b_player .b_middle .sing_time .time_bar{width:80%;height:4px;background:#9b9b9b;float:left;
+       margin-left:17px;margin-top:5px;}
+       .b_player .b_middle .sing_time .time_end{float:right;color:#fff;margin-right:20px;margin-top:1px;}
+       
+       .b_player .b_right{width:300px;height:80px;float:left;}
+        /* bottom end*/
+        /* content end*/
+</style>
+
+</head>
+<body>
+<!-- top start -->
+    <div class="top">
+       <div class="t_header">
+           <div class="t_logo">
+           		<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#">
+           			<img src="./Bei music system_files/music.png" alt="beike music system" width="60" height="56">
+           		</a>
+           </div>
+           <div class="t_desc">beike   music</div>
+       </div>
+    </div>
+<!-- end top -->
+    
+<!-- content start -->
+    <div class="content">
+<!-- box start -->
+    	<div class="c_box">
+<!-- left start -->
+    		<div class="c_left">
+    			<div class="l_menu">
+    		 	<ul>
+    		 		<li class="l_playnow">正在播放</li>
+    		 		<li>播放历史</li>
+    		 		<li>收藏列表</li>
+    		 		
+    			</ul>
+    			</div>
+    			<div class="l_add">
+    			            <span class="l_mymusic"> 我创建的歌单</span>
+    			            <a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="l_create"></a>
+    			            <div class="l_title">
+    			               <img src="./Bei music system_files/list.png" alt="you haven&#39;t create music list" width="165" height="89">
+    			            
+    			            </div>
+    			</div>
+    		</div>
+<!-- left end -->
+    		
+<!-- middle start -->
+    		<div class="c_middle">
+    			<div class="m_box">
+    				<div class="m_title">
+    					<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="m_a"><input type="checkbox"></a>
+    					<div class="m_info">
+	    					<div class="m_t">歌曲</div>
+	    					<div class="m_t">演唱者</div>
+	    					<div class="m_t">专辑</div>
+    				    </div>
+    					
+    				</div>
+    				<div class="m_songlist">
+    					<div class="s_list">
+    						<p class="s_choose"><input type="checkbox"></p>
+    						<p class="s_number">1</p>
+    						<div class="s_info">
+		    					<div class="s_t">烟花易冷</div>
+		    					<div class="s_t">周杰伦</div>
+		    					<div class="s_t">古月</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_like">	
+    				        		<img src="./Bei music system_files/like.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_more">	
+    				        		<img src="./Bei music system_files/more.png" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_delete">
+    				        		<img src="./Bei music system_files/del.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    					<div class="s_list">
+    						<p class="s_choose"><input type="checkbox"></p>
+    						<p class="s_number">2</p>
+    						<div class="s_info">
+		    					<div class="s_t">再度重逢</div>
+		    					<div class="s_t">陈珂</div>
+		    					<div class="s_t">你就是一切</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_like">	
+    				        		<img src="./Bei music system_files/like.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_more">	
+    				        		<img src="./Bei music system_files/more.png" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_delete">
+    				        		<img src="./Bei music system_files/del.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    					<div class="s_list">
+    						<p class="s_choose"><input type="checkbox"></p>
+    						<p class="s_number">3</p>
+    						<div class="s_info">
+		    					<div class="s_t">有何不可</div>
+		    					<div class="s_t">许嵩</div>
+		    					<div class="s_t">自定义</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_like">	
+    				        		<img src="./Bei music system_files/like.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_more">	
+    				        		<img src="./Bei music system_files/more.png" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_delete">
+    				        		<img src="./Bei music system_files/del.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    					<div class="s_list">
+    						<p class="s_choose"><input type="checkbox"></p>
+    						<p class="s_number">4</p>
+    						<div class="s_info">
+		    					<div class="s_t">哑巴</div>
+		    					<div class="s_t">薛之谦</div>
+		    					<div class="s_t">哑巴</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_like">	
+    				        		<img src="./Bei music system_files/like.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_more">	
+    				        		<img src="./Bei music system_files/more.png" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_delete">
+    				        		<img src="./Bei music system_files/del.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    					<div class="s_list">
+    						<p class="s_choose"><input type="checkbox"></p>
+    						<p class="s_number">5</p>
+    						<div class="s_info">
+		    					<div class="s_t">爱的华尔兹</div>
+		    					<div class="s_t">郑爽</div>
+		    					<div class="s_t">一起来看流星雨</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_like">	
+    				        		<img src="./Bei music system_files/like.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_more">	
+    				        		<img src="./Bei music system_files/more.png" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_delete">
+    				        		<img src="./Bei music system_files/del.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    					<div class="s_list">
+    						<p class="s_choose"><input type="checkbox"></p>
+    						<p class="s_number">6</p>
+    						<div class="s_info">
+		    					<div class="s_t">烟火</div>
+		    					<div class="s_t">陈翔</div>
+		    					<div class="s_t">我的舞台</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_like">	
+    				        		<img src="./Bei music system_files/like.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_more">	
+    				        		<img src="./Bei music system_files/more.png" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_delete">
+    				        		<img src="./Bei music system_files/del.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    					<div class="s_list">
+    						<p class="s_choose"><input type="checkbox"></p>
+    						<p class="s_number">7</p>
+    						<div class="s_info">
+		    					<div class="s_t">无法原谅</div>
+		    					<div class="s_t">李佳璐</div>
+		    					<div class="s_t">伤感情歌</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_like">	
+    				        		<img src="./Bei music system_files/like.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_more">	
+    				        		<img src="./Bei music system_files/more.png" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_delete">
+    				        		<img src="./Bei music system_files/del.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    					<div class="s_list">
+    						<p class="s_choose"><input type="checkbox"></p>
+    						<p class="s_number">8</p>
+    						<div class="s_info">
+		    					<div class="s_t">病变</div>
+		    					<div class="s_t">鞠文娴</div>
+		    					<div class="s_t">BINGBIAN</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_like">	
+    				        		<img src="./Bei music system_files/like.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_more">	
+    				        		<img src="./Bei music system_files/more.png" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_delete">
+    				        		<img src="./Bei music system_files/del.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    				  <div class="s_list">
+    						<p class="s_choose"><input type="checkbox"></p>
+    						<p class="s_number">9</p>
+    						<div class="s_info">
+		    					<div class="s_t">最长的旅途</div>
+		    					<div class="s_t">李琦</div>
+		    					<div class="s_t">最长的旅途</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_like">	
+    				        		<img src="./Bei music system_files/like.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_more">	
+    				        		<img src="./Bei music system_files/more.png" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_delete">
+    				        		<img src="./Bei music system_files/del.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    					<div class="s_list">
+    						<p class="s_choose"><input type="checkbox"></p>
+    						<p class="s_number">10</p>
+    						<div class="s_info info">
+		    					<div class="s_t">醉赤壁</div>
+		    					<div class="s_t">林俊杰</div>
+		    					<div class="s_t">JJ陆</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_like">	
+    				        		<img src="./Bei music system_files/like.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_more">	
+    				        		<img src="./Bei music system_files/more.png" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_delete">
+    				        		<img src="./Bei music system_files/del.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    					<div class="s_list">
+    						<p class="s_choose"><input type="checkbox"></p>
+    						<p class="s_number">11</p>
+    						<div class="s_info info">
+		    					<div class="s_t">最美的期待</div>
+		    					<div class="s_t">周笔畅</div>
+		    					<div class="s_t">最美的期待</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_like">	
+    				        		<img src="./Bei music system_files/like.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_more">	
+    				        		<img src="./Bei music system_files/more.png" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        	<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="s_icon_delete">
+    				        		<img src="./Bei music system_files/del.jpeg" alt="beike music system" width="18" height="18">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+<!-- middle end -->
+    		
+<!-- right start -->
+    		<div class="c_right">
+    		
+    		
+    			<div class="r_photo">
+    			     <img src="./Bei music system_files/wen.jpg" alt="photo of juwenxian" width="125" height="125">
+    			</div>
+    			<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="r_btn">给个赞呗</a>
+    			<div class="r_singword">
+    				<div class="jspPane">
+    					<p class="ie8FontColor">鞠文娴 - BINGBIAN病变
+						</p><p class="ie8FontColor">词：Cubi/Fi9
+						</p><p class="ie8FontColor">曲：Jurrivh
+						</p><p class="ie8FontColor playOver">有天我睡醒看到我的身边没有你
+						</p><p class="ie8FontColor">在我的右边是你曾经喜欢的玩具
+						</p><p class="ie8FontColor">可当我站起身来在房间里寻找你
+						</p><p class="ie8FontColor">留下的只有带着你味道的一封信
+						</p><p class="ie8FontColor">就在昨天还一起看我们的照片
+						</p><p class="ie8FontColor">可现在让我感觉像烂剧里的主演
+						</p><p class="ie8FontColor">为什么这种事情会发生在我身边
+						</p><p class="ie8FontColor">是不是老天没能看到对你的疯癫
+						</p><p class="ie8FontColor">还想着创造你的宇宙
+						</p><p class="ie8FontColor">但现在已经被我清空
+						</p><p class="ie8FontColor">你让我整个人都冰冻
+						</p><p class="ie8FontColor">还怎么再次为你心动
+						</p><p class="ie8FontColor">Wake up me
+						</p><p class="ie8FontColor">不是你的意愿
+						</p><p class="ie8FontColor">离开我开始新的起点
+						</p><p class="ie8FontColor">可能我还会对你贪恋
+						</p><p class="ie8FontColor">谁让你曾经让我疯癫
+						</p><p class="ie8FontColor">疯癫那也是过去的画面
+						</p><p class="ie8FontColor">看往后的几天
+						</p><p class="ie8FontColor">我猜你也不会出现
+						</p><p class="ie8FontColor">我回想这几年
+						</p><p class="ie8FontColor">就像是要命的病变
+						</p><p class="ie8FontColor">你可能听不见
+						</p><p class="ie8FontColor">来自他对你的挂念
+						</p><p class="ie8FontColor">可能有点累
+						</p><p class="ie8FontColor">觉得对不对
+						</p><p class="ie8FontColor">这是第几次在为你宿醉
+						</p><p class="ie8FontColor">没了我肩膀
+						</p><p class="ie8FontColor">你在谁身旁
+						</p><p class="ie8FontColor">买的礼物都变成了灰
+						</p><p class="ie8FontColor">曾经我多想
+						</p><p class="ie8FontColor">把你变漂亮
+						</p><p class="ie8FontColor">看着别人羡慕你的模样
+						</p><p class="ie8FontColor">没关系有小熊陪着你看月亮
+						</p><p class="ie8FontColor">我已经看到跟你断电的过程
+						</p><p class="ie8FontColor">但我假装看不见
+						</p><p class="ie8FontColor">是不是要变得像个厉鬼
+						</p><p class="ie8FontColor">才能进入你的世界
+						</p><p class="ie8FontColor">为什么不说再见
+						</p><p class="ie8FontColor">我猜你应该是不小心地忘记
+						</p><p class="ie8FontColor">都无所谓也有点累
+						</p><p class="ie8FontColor">也可以开始新的记忆
+						</p><p class="ie8FontColor">有天我睡醒看到我的身边没有你
+						</p><p class="ie8FontColor">在我的右边是你曾经喜欢的玩具
+						</p><p class="ie8FontColor">可当我站起身来在房间里寻找你
+						</p><p class="ie8FontColor">留下的只有带着你味道的一封信
+						</p><p class="ie8FontColor">就在昨天还一起看我们的照片
+						</p><p class="ie8FontColor">可现在让我感觉像烂剧里的主演
+						</p><p class="ie8FontColor">为什么这种事情会发生在我身边
+						</p><p class="ie8FontColor">是不是老天没能看到对你的疯癫
+						</p><p class="ie8FontColor">我不能够停止啊
+						</p><p class="ie8FontColor">这些年我对你的疯癫
+						</p><p class="ie8FontColor">还会戴上那条围巾吗
+						</p><p class="ie8FontColor">在每一个寒风刺骨的冬天
+						</p><p class="ie8FontColor">还有每次送你在回家的路上
+						</p><p class="ie8FontColor">不经意间触碰到你的手
+						</p><p class="ie8FontColor">你穿裙子眨眼睛望着我
+						</p><p class="ie8FontColor">那些让我心动的瞬间
+						</p><p class="ie8FontColor">那条十字路口
+						</p><p class="ie8FontColor">始终有你身上的气味
+						</p><p class="ie8FontColor">车水马龙过后的路灯下的身影
+						</p><p class="ie8FontColor">又会是谁
+						</p><p class="ie8FontColor">可是我真的喜欢你
+						</p><p class="ie8FontColor">但是每次欲言又闭嘴
+						</p><p class="ie8FontColor">那时荒唐的男孩
+						</p><p class="ie8FontColor">又浑浊了几岁
+						</p><p class="ie8FontColor">有天我睡醒看到我的身边没有你
+						</p><p class="ie8FontColor">在我的右边是你曾经喜欢的玩具
+						</p><p class="ie8FontColor">可当我站起身来在房间里寻找你
+						</p><p class="ie8FontColor">留下的只有带着你味道的一封信
+						</p><p class="ie8FontColor">就在昨天还一起看我们的照片
+						</p><p class="ie8FontColor">可现在让我感觉像烂剧里的主演
+						</p><p class="ie8FontColor">为什么这种事情会发生在我身边
+						</p><p class="ie8FontColor">是不是老天没能看到对你的疯癫
+						</p></div>
+    				
+    			</div>
+    		</div>
+<!-- right end -->
+    	</div>
+<!-- c_box end -->
+    </div>
+<!-- content end -->
+
+<!-- bottom start -->
+
+<div class="b_player">
+<!-- 左中右结构 -->
+	<div class="b_left">
+		<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="p_icon last_icon"></a>
+		<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="p_icon play_icon"></a>
+		<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="p_icon pause_icon"></a>
+		<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="p_icon next_icon"></a>
+		<div class="left_tools">
+			<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="tools t_list" title="列表循环"></a>
+			<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="tools t_single" title="单曲循环"></a>
+			<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="tools t_random" title="随机播放"></a>
+		</div>
+	</div>
+	<div class="b_middle"> 
+	<!-- 上下结构 -->
+		<div class="sing_info">
+			<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="sing_name" title="歌曲信息">BINGBIAN病变-鞠文娴</a>
+			<div class="info_group">
+				<a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="group sing_collect"></a>
+			    <a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="group sing_share"></a>
+			    <a href="file:///home/fei/eclipse-web-workspace/BeiMusic/WebContent/music.html#" class="group sing_more"></a>
+			</div>
+		</div>
+		<div class="sing_time">
+			<div class="time_start">00:00</div>
+			<div class="time_bar"></div>
+			<div class="time_end">03:30</div>
+		</div>
+	</div>
+	<div class="b_right"></div>
+
+
+</div>
+<!-- bottom end -->
+
+</body></html>

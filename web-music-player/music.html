@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script  type="text/javascript" src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+
+<meta charset="UTF-8">
+
+<title>Bei music system</title>
+<!-- js/css -->
+<style type="text/css">
+    
+   *{margin:0;padding:0;}
+   body{font-size:12px;font-family:微软雅黑；color:#666;}
+/* top start*/
+	   .top{width:100%;height:56px;background:#333;}
+	   .top .t_header{width:95%;height:56px;background:#555;margin:0 auto;} 
+	   .top .t_header .t_logo{float:left;}
+	   .top .t_header .t_desc{float:right;line-height:56px;font-size:20px;}
+	 /* top end*/
+	   
+	/* content start*/
+	   .content{width:100%;height:500px;margin-top:15px;}
+	   .content .c_box{padding:10px;}
+	    /* left start*/
+	   .content .c_box .c_left{width:190px;float:left;}
+	   .content .c_box .c_left .l_menu{border-bottom:1px solid #ddd;}
+	   .content .c_box .c_left .l_menu ul 
+	   li{list-style:none;line-height:60px;font-size:20px;color:#333;padding-left:10px;
+	   border-radius:4px;cursor:pointer;}
+	   .content .c_box .c_left .l_menu ul li:hover{background:#f0f0f0}
+	   .content .c_box .c_left .l_menu ul .l_playnow{background:#f0f0f0;}
+	   .content .c_box .c_left .l_add .l_mymusic
+	       {float:left;color:#aaa;line-height:40px;padding-left:10px;}
+	   .content .c_box .c_left .l_add .l_create
+	       {width:18px;height:18px;display:block;float:right;margin-top:12px;margin-right:24px;background:url("images/button.png") no-repeat;background-position:0 -415px;}
+	    .content .c_box .c_left .l_add .l_create:hover{background-position:-28px -415px;}   
+	        /* left end*/
+	        
+	        /*middle start*/
+	    .content .c_box .c_middle
+	        {width:57%;height:500px;float:left;margin-left:30px;}
+	    .content .c_box .c_middle .m_box .m_title 
+	           {width:100%;height:40px;border-bottom:1px solid #ddd;}
+	    .content .c_box .c_middle .m_box .m_title .m_a{float:left;margin:14px 10px 0px 10px;}
+	    .content .c_box .c_middle .m_box .m_title .m_info
+	    {width:57%;float:left;margin-left:100px;color:#aaa;m}
+	    .content .c_box .c_middle .m_box .m_title .m_info .m_t
+	         {width:33%;line-height:40px;float:left;}
+	    .content .c_box .c_middle .m_box .m_songlist .s_list
+	         {width:100%;height:40px;border-bottom:1px solid #ddd;}  
+	         .content .c_box .c_middle .m_box .m_songlist .s_list:hover{background:#f5f5f5;}  
+	    .content .c_box .c_middle .m_box .m_songlist .s_list .s_choose
+	         {float:left;margin:14px 10px 0px 10px;}
+	     .content .c_box .c_middle .m_box .m_songlist .s_list .s_number
+	          {float:left;margin:16px 10px 0px 10px;display:block;} 
+	     .content .c_box .c_middle .m_box .m_songlist .s_list .s_number .num_gif
+	     {width:21px;height:21px;font-size:0;float:left;margin-top:-2px;margin-left:-14px;display:inline-block;background:url("images/play.gif") no-repeat;}      
+	    
+	     .content .c_box .c_middle .m_box .m_songlist .s_list .s_info
+	           {width:57%;float:left;margin-left:70px;color:#aaa;}
+	           .content .c_box .c_middle .m_box .m_songlist .s_list .info
+	           {width:57%;float:left;margin-left:63px;color:#aaa;}
+	     .content .c_box .c_middle .m_box .m_songlist .s_list .s_info .s_t
+	          {width:33%;line-height:40px;float:left;}  
+	     .content .c_box .c_middle .m_box .m_songlist .s_list .s_love
+	          {width:110px;height:40px;float:right;} 
+	      .content .c_box .c_middle .m_box .m_songlist .s_list .s_love .icon
+	      {width:18px;height:18px;display:block;float:left;
+	      margin:8px 16px 0 0;background:url("images/button.png") no-repeat;}
+	      .content .c_box .c_middle .m_box .m_songlist .s_list .s_love .s_icon_like
+	      {background-position:0 -154px;;} 
+	      .content .c_box .c_middle .m_box .m_songlist .s_list .s_love .s_icon_like:hover
+	      {background-position:-28px -154px;}
+	      
+	     .content .c_box .c_middle .m_box .m_songlist .s_list .s_love .s_icon_more
+	      {background-position:0 -473px;} 
+	      .content .c_box .c_middle .m_box .m_songlist .s_list .s_love .s_icon_more:hover
+	      {background-position:-28px -473px;}
+	      
+	       .content .c_box .c_middle .m_box .m_songlist .s_list .s_love .s_icon_delete
+	      {background-position:0 -491px;}  
+	      .content .c_box .c_middle .m_box .m_songlist .s_list .s_love .s_icon_delete:hover
+	      {background-position:-28px -491px;}
+	      
+	      
+	   /*content middle end*/
+	        
+	   /*content right start */
+	      .content .c_box .c_right
+	      {width:240px;height:500px;float:right;margin-right:50px;}
+	      .content .c_box .c_right .r_photo{text-align:center;padding-top:15px;margin:0 0 0 0;}
+	      .content .c_box .c_right .r_photo img{border-radius:10px;}
+	      .content .c_box .c_right .r_btn
+	       {width:80px;height:30px;display:block;margin:10px auto;
+	       border-radius:5px;background:#F90;text-align:center;line-height:34px;
+	       color:#fff;text-decoration:none;font-size:15px;}
+	      .content .c_box .c_right .r_btn:hover{background:#F60;}
+	      .content .c_box .c_right .r_singword{width:250px;height:60%;overflow:auto}
+	      .content .c_box .c_right .r_singword .jspPane{text-align:center;line-height:30px;font-size:12px;font-weight:lighter;}
+	   /* content right end */
+	        
+	        
+	/*bottom start*/
+	        .b_player
+	        {width:100%;height:80px;position:fixed;background:#333;left:0;bottom:0;}
+	        .b_player .b_left{width:230px;height:80px;margin-left:20px;float:left;}
+	        .b_player .b_left .p_icon
+	        {width:30px;height:30px;background:url("images/button.png") 
+	        no-repeat;display:block;float:left;margin:25px 0 0 20px;}
+	        .b_player .b_left .last_icon{background-position:0px -88px;}
+	        .b_player .b_left .last_icon:hover{background-position:-30px -88px;}
+	        .b_player .b_left .play_icon{background-position:0px 0px;}
+	        .b_player .b_left .play_icon:hover{background-position:-30px 0px;}
+	        .b_player .b_left .pause_icon{background-position:0px -30px;display:none;}
+	        .b_player .b_left .pause_icon:hover{background-position:-30px -30px;}
+	        .b_player .b_left .next_icon{background-position:0px -60px;}
+	        .b_player .b_left .next_icon:hover{background-position:-30px -60px;}
+	     
+	        
+	       .b_player .b_left .left_tools .tools{width:20px;height:20px;background:url("images/button.png") no-repeat;
+	       display:block;float:left;margin:15px 0 0 40px;}
+	       .b_player .b_left .left_tools .t_list{background-position:0px -180px;display:none}
+	       .b_player .b_left .left_tools .t_list:hover{background-position:-30px -180px;}
+	       .b_player .b_left .left_tools .t_single{background-position:0px -200px;display:block;}
+	       .b_player .b_left .left_tools .t_single:hover{background-position:-30px -200px;}
+	       .b_player .b_left .left_tools .t_random{background-position:0px -220px;display:none;}
+	       .b_player .b_left .left_tools .t_random:hover{background-position:-30px -220px;}
+	       
+	       .b_player .b_middle{width:55%;height:80px;float:left;}
+	       .b_player .b_middle .sing_info{width:100%;height:25px;margin-top:10px;}
+	       
+	       .b_player .b_middle .sing_info .sing_name{margin-left:30px;font-size:14px;text-decoration:none;color:#fff;float:left;}
+	       .b_player .b_middle .sing_info .info_group{float:right;}
+	       .b_player .b_middle .sing_info .info_group .group
+	       {margin-left:10px;width:20px;height:20px;float:left;display:block;background:url("images/button.png") no-repeat;}
+	       .b_player .b_middle .sing_info .info_group .sing_collect{background-position:0 -239px;}
+	       .b_player .b_middle .sing_info .info_group .sing_collect:hover{background-position:-28px -239px;}
+	       .b_player .b_middle .sing_info .info_group .sing_share{background-position:0 -258px;}
+	       .b_player .b_middle .sing_info .info_group .sing_share:hover{background-position:-28px -258px;}
+	       .b_player .b_middle .sing_info .info_group .sing_more{margin-right:20px;background-position:0 -277px;}
+	       .b_player .b_middle .sing_info .info_group .sing_more:hover{background-position:-28px -277px;}
+	       
+	       .b_player .b_middle .sing_time{width:100%;height:15px;margin-top:10px;}
+	       .b_player .b_middle .sing_time .time_start{float:left;color:#fff;margin-left:30px;margin-top:1px;}
+	       .b_player .b_middle .sing_time .time_bar{width:80%;height:4px;background:#9b9b9b;float:left;
+	       margin-left:17px;margin-top:5px;position:relative;}
+	       .b_player .b_middle .sing_time .time_bar .bar_played
+	       {width:0%;height:4px;background:#14a9ff;}
+	       .b_player .b_middle .sing_time .time_bar .bar_location
+	       {width:12px;height:12px;background:#fff;border-radius:100px;margin-left:0%;
+	       margin-top:-8px;cursor:pointer;}
+	       .b_player .b_middle .sing_time .time_bar .bar_rest
+	       {}
+	       .b_player .b_middle .sing_time .time_end{float:right;color:#fff;margin-right:20px;margin-top:1px;}
+	       
+	       .b_player .b_right{width:300px;height:80px;float:left;}
+	       .b_player .b_right .select_timbre1
+	       {margin-top:27px;margin-left:10px;width:60px;height:25px;background:#e1e1e1;display:block;
+	       text-decoration:none;text-align:center;line-height:30px;color:#505050;border-radius:20px;}
+	       .b_player .b_right .select_timbre1:hover{background:#14a9ff;}
+	       .b_player .b_right .select_timbre2
+	       {display:none;margin-top:27px;margin-left:10px;width:75px;height:25px;background:#e1e1e1;
+	       text-decoration:none;text-align:center;line-height:30px;color:#505050;border-radius:20px;}
+	       .b_player .b_right .select_timbre2:hover{background:#14a9ff;}
+	       .b_player .b_right .voice_adjust{margin-top:-22px;margin-right:30px;width:140px;height:25px;float:right;}
+	       .b_player .b_right .voice_adjust .volume
+	       {width:20px;height:20px;display:block;}
+	       .b_player .b_right .voice_adjust .on{float:left;background:url("images/button.png") no-repeat;background-position:0px -295px;display:block;}
+	       .b_player .b_right .voice_adjust .on:hover{background-position:-27px -295px;}
+	       .b_player .b_right .voice_adjust .off{float:left;background:url("images/button.png") no-repeat;background-position:0px -312px;display:none;}
+	       .b_player .b_right .voice_adjust .off:hover{background-position:-27px -312px;}
+	       
+	       .b_player .b_right .voice_adjust .voice_bar
+	       {float:left;width:70%;height:3px;background:#9b9b9b;position:relative;margin-left:2px;margin-top:8px;}
+	       .b_player .b_right .voice_adjust .voice_bar .voi_played{width:50%;height:3px;background:#14a9ff;}
+	       .b_player .b_right .voice_adjust .voice_bar .voi_location
+	       {width:8px;height:8px;background:#fff;border-radius:100px;margin-left:50%;margin-top:-6px;cursor:pointer;}
+	       .b_player .b_right .voice_adjust .voice_bar .voi_rest{}
+	     
+	 
+	 /* bottom end*/
+ 
+    .hidetext{display:none;}
+ /* content end*/
+ .asked{background:#f5f5f5;}
+ 
+ /*单曲循环*/
+   .single_cycle{loop:"loop";}
+   .currentwords{background:#E5E5E5;font-size:15px;font-family:仿宋；}
+</style>
+
+</head>
+<body>
+<!-- top start -->
+    <div class="top">
+       <div class="t_header">
+           <div class="t_logo">
+           		<a href="#">
+           			<img src="images/tit.jpg" alt="music-title" width="60" height="56"/>
+           		</a>
+           </div>
+           <div class="t_desc">beike music</div>
+       </div>
+    </div>
+<!-- end top -->
+    
+<!-- content start -->
+    <div class="content">
+<!-- box start -->
+    	<div class="c_box">
+<!-- left start -->
+    		<div class="c_left">
+    			<div class="l_menu">
+    		 	<ul>
+    		 		<li class="l_playnow">正在播放</li>
+    		 		<li>播放历史</li>
+    		 		<li>收藏列表</li>
+    		 		
+    			</ul>
+    			</div>
+    			<div class="l_add">
+    			            <span class="l_mymusic"> 我创建的歌单</span>
+    			            <a href="#" class="l_create"></a>
+    			            <div class="l_title">
+    			               <img src="images/list.png" alt="you haven't create music list" width="165" height="89"/>
+    			            
+    			            </div>
+    			</div>
+    			
+    		</div>
+<!-- left end -->
+    		
+<!-- middle start -->
+    		<div class="c_middle">
+    			<div class="m_box">
+    				<div class="m_title">
+    					<a href="#" class="m_a"><input type="checkbox"/></a>
+    					<div class="m_info">
+	    					<div class="m_t">歌曲</div>
+	    					<div class="m_t">演唱者</div>
+	    					<div class="m_t">专辑</div>
+    				    </div>
+    					
+    				</div>
+    				<div class="m_songlist" >
+    					<div class="s_list" data-link="music/1.mp3" data-images="images/1.jpg">
+    						<p class="s_choose"><input type="checkbox" /></p>
+    						<p class="s_number">
+    						<span>1</span></p>
+	    						<div class="s_info">
+			    					<div class="s_t">烟花易冷</div>
+			    					<div class="s_t">周杰伦</div>
+			    					<div class="s_t">古月</div>
+	    				        </div>
+	    				        <div class="s_love">
+	    				        	<a href="#" class="icon s_icon_like"></a>
+	    				        	<a href="#" class="icon s_icon_more">	
+	    				        	</a>
+	    				        	<a href="#" class="icon s_icon_delete">
+	    				        	</a>
+	    				        
+	    				        </div>
+    					</div>
+    					<div class="s_list" data-link="music/2.mp3" data-images="images/2.jpg">
+    						<p class="s_choose"><input type="checkbox" /></p>
+    						<p class="s_number"><span>2</span></p>
+    						<div class="s_info">
+		    					<div class="s_t">再度重逢</div>
+		    					<div class="s_t">陈珂</div>
+		    					<div class="s_t">你就是一切</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="#" class="icon s_icon_like">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_more">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_delete">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    					<div class="s_list" data-link="music/3.mp3" data-images="images/3.jpg">
+    						<p class="s_choose"><input type="checkbox" /></p>
+    						<p class="s_number"><span>3</span></p>
+    						<div class="s_info">
+		    					<div class="s_t">有何不可</div>
+		    					<div class="s_t">许嵩</div>
+		    					<div class="s_t">自定义</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="#" class="icon s_icon_like">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_more">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_delete">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    					<div class="s_list" data-link="music/4.mp3" data-images="images/4.jpg" >
+    						<p class="s_choose"><input type="checkbox" /></p>
+    						<p class="s_number"><span>4</span></p>
+    						<div class="s_info">
+		    					<div class="s_t">哑巴</div>
+		    					<div class="s_t">薛之谦</div>
+		    					<div class="s_t">哑巴</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="#" class="icon s_icon_like">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_more">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_delete">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    					<div class="s_list" data-link="music/5.mp3" data-images="images/5.jpg">
+    						<p class="s_choose"><input type="checkbox" /></p>
+    						<p class="s_number"><span>5</span></p>
+    						<div class="s_info">
+		    					<div class="s_t">爱的华尔兹</div>
+		    					<div class="s_t">郑爽</div>
+		    					<div class="s_t">一起来看流星雨</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="#" class="icon s_icon_like">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_more">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_delete">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    					<div class="s_list" data-link="music/6.mp3" data-images="images/6.jpg">
+    						<p class="s_choose"><input type="checkbox" /></p>
+    						<p class="s_number"><span>6</span></p>
+    						<div class="s_info">
+		    					<div class="s_t">烟火</div>
+		    					<div class="s_t">陈翔</div>
+		    					<div class="s_t">我的舞台</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="#" class="icon s_icon_like">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_more">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_delete">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    					<div class="s_list" data-link="music/7.mp3" data-images="images/7.jpg">
+    						<p class="s_choose"><input type="checkbox" /></p>
+    						<p class="s_number"><span>7</span></p>
+    						<div class="s_info">
+		    					<div class="s_t">无法原谅</div>
+		    					<div class="s_t">李佳璐</div>
+		    					<div class="s_t">伤感情歌</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="#" class="icon s_icon_like">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_more">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_delete">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    					<div class="s_list" data-link="music/8.mp3" data-images="images/8.jpg">
+    						<p class="s_choose"><input type="checkbox" /></p>
+    						<p class="s_number"><span>8</span></p>
+    						<div class="s_info">
+		    					<div class="s_t">病变</div>
+		    					<div class="s_t">鞠文娴</div>
+		    					<div class="s_t">BINGBIAN</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="#" class="icon s_icon_like">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_more">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_delete">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    				    <div class="s_list" data-link="music/9.mp3" data-images="images/9.jpg">
+    						<p class="s_choose"><input type="checkbox" /></p>
+    						<p class="s_number"><span>9</span></p>
+    						<div class="s_info">
+		    					<div class="s_t">最长的旅途</div>
+		    					<div class="s_t">李琦</div>
+		    					<div class="s_t">最长的旅途</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="#" class="icon s_icon_like">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_more">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_delete">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    					<div class="s_list" data-link="music/10.mp3" data-images="images/10.jpg">
+    						<p class="s_choose"><input type="checkbox" /></p>
+    						<p class="s_number"><span>10</span></p>
+    						<div class="s_info info">
+		    					<div class="s_t">醉赤壁</div>
+		    					<div class="s_t">林俊杰</div>
+		    					<div class="s_t">JJ陆</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="#" class="icon s_icon_like">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_more">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_delete">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    					<div class="s_list" data-link="music/11.mp3" data-images="images/11.jpg">
+    						<p class="s_choose"><input type="checkbox" /></p>
+    						<p class="s_number"><span>11</span></p>
+    						<div class="s_info info">
+		    					<div class="s_t">最美的期待</div>
+		    					<div class="s_t">周笔畅</div>
+		    					<div class="s_t">最美的期待</div>
+    				        </div>
+    				        <div class="s_love">
+    				        	<a href="#" class="icon s_icon_like">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_more">	
+    				        	</a>
+    				        	<a href="#" class="icon s_icon_delete">
+    				        	</a>
+    				        
+    				        </div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+<!-- middle end -->
+    		
+<!-- right start -->
+    		<div class="c_right">
+    		
+    		
+    			<div class="r_photo">
+    			     <img id="photo" class="photo" src="images/wen.jpg" alt="photo of juwenxian" width="125" height="125"/>
+    			</div>
+    			<a href="#" class="r_btn" >下载这首歌</a>
+    			<div class="r_singword">
+    				<div class="jspPane" id="jspPane">
+    					<p class="ie8FontColor">鞠文娴 - BINGBIAN病变
+						</p><p class="ie8FontColor">词：Cubi/Fi9
+						</p><p class="ie8FontColor">曲：Jurrivh
+						</p><p class="ie8FontColor playOver">有天我睡醒看到我的身边没有你
+						</p><p class="ie8FontColor">在我的右边是你曾经喜欢的玩具
+						</p><p class="ie8FontColor">可当我站起身来在房间里寻找你
+						</p><p class="ie8FontColor">留下的只有带着你味道的一封信
+						</p><p class="ie8FontColor">就在昨天还一起看我们的照片
+						</p><p class="ie8FontColor">可现在让我感觉像烂剧里的主演
+						</p><p class="ie8FontColor">为什么这种事情会发生在我身边
+						</p><p class="ie8FontColor">是不是老天没能看到对你的疯癫
+						</p><p class="ie8FontColor">还想着创造你的宇宙
+						</p><p class="ie8FontColor">但现在已经被我清空
+						</p><p class="ie8FontColor">你让我整个人都冰冻
+						</p><p class="ie8FontColor">还怎么再次为你心动
+						</p><p class="ie8FontColor">Wake up me
+						</p><p class="ie8FontColor">不是你的意愿
+						</p><p class="ie8FontColor">离开我开始新的起点
+						</p><p class="ie8FontColor">可能我还会对你贪恋
+						</p><p class="ie8FontColor">谁让你曾经让我疯癫
+						</p><p class="ie8FontColor">疯癫那也是过去的画面
+						</p><p class="ie8FontColor">看往后的几天
+						</p><p class="ie8FontColor">我猜你也不会出现
+						</p><p class="ie8FontColor">我回想这几年
+						</p><p class="ie8FontColor">就像是要命的病变
+						</p><p class="ie8FontColor">你可能听不见
+						</p><p class="ie8FontColor">来自他对你的挂念
+						</p><p class="ie8FontColor">可能有点累
+						</p><p class="ie8FontColor">觉得对不对
+						</p><p class="ie8FontColor">这是第几次在为你宿醉
+						</p><p class="ie8FontColor">没了我肩膀
+						</p><p class="ie8FontColor">你在谁身旁
+						</p><p class="ie8FontColor">买的礼物都变成了灰
+						</p><p class="ie8FontColor">曾经我多想
+						</p><p class="ie8FontColor">把你变漂亮
+						</p><p class="ie8FontColor">看着别人羡慕你的模样
+						</p><p class="ie8FontColor">没关系有小熊陪着你看月亮
+						</p><p class="ie8FontColor">我已经看到跟你断电的过程
+						</p><p class="ie8FontColor">但我假装看不见
+						</p><p class="ie8FontColor">是不是要变得像个厉鬼
+						</p><p class="ie8FontColor">才能进入你的世界
+						</p><p class="ie8FontColor">为什么不说再见
+						</p><p class="ie8FontColor">我猜你应该是不小心地忘记
+						</p><p class="ie8FontColor">都无所谓也有点累
+						</p><p class="ie8FontColor">也可以开始新的记忆
+						</p><p class="ie8FontColor">有天我睡醒看到我的身边没有你
+						</p><p class="ie8FontColor">在我的右边是你曾经喜欢的玩具
+						</p><p class="ie8FontColor">可当我站起身来在房间里寻找你
+						</p><p class="ie8FontColor">留下的只有带着你味道的一封信
+						</p><p class="ie8FontColor">就在昨天还一起看我们的照片
+						</p><p class="ie8FontColor">可现在让我感觉像烂剧里的主演
+						</p><p class="ie8FontColor">为什么这种事情会发生在我身边
+						</p><p class="ie8FontColor">是不是老天没能看到对你的疯癫
+						</p><p class="ie8FontColor">我不能够停止啊
+						</p><p class="ie8FontColor">这些年我对你的疯癫
+						</p><p class="ie8FontColor">还会戴上那条围巾吗
+						</p><p class="ie8FontColor">在每一个寒风刺骨的冬天
+						</p><p class="ie8FontColor">还有每次送你在回家的路上
+						</p><p class="ie8FontColor">不经意间触碰到你的手
+						</p><p class="ie8FontColor">你穿裙子眨眼睛望着我
+						</p><p class="ie8FontColor">那些让我心动的瞬间
+						</p><p class="ie8FontColor">那条十字路口
+						</p><p class="ie8FontColor">始终有你身上的气味
+						</p><p class="ie8FontColor">车水马龙过后的路灯下的身影
+						</p><p class="ie8FontColor">又会是谁
+						</p><p class="ie8FontColor">可是我真的喜欢你
+						</p><p class="ie8FontColor">但是每次欲言又闭嘴
+						</p><p class="ie8FontColor">那时荒唐的男孩
+						</p><p class="ie8FontColor">又浑浊了几岁
+						</p><p class="ie8FontColor">有天我睡醒看到我的身边没有你
+						</p><p class="ie8FontColor">在我的右边是你曾经喜欢的玩具
+						</p><p class="ie8FontColor">可当我站起身来在房间里寻找你
+						</p><p class="ie8FontColor">留下的只有带着你味道的一封信
+						</p><p class="ie8FontColor">就在昨天还一起看我们的照片
+						</p><p class="ie8FontColor">可现在让我感觉像烂剧里的主演
+						</p><p class="ie8FontColor">为什么这种事情会发生在我身边
+						</p><p class="ie8FontColor">是不是老天没能看到对你的疯癫
+						</p></div>
+    				
+    			</div>
+    		</div>
+<!-- right end -->
+    	</div>
+<!-- c_box end -->
+    </div>
+<!-- content end -->
+
+<!-- bottom start -->
+
+<div class="b_player">
+<!-- 左中右结构 -->
+	<div class="b_left">
+		<a href="#" class="p_icon last_icon"></a>
+		<a href="#" class="p_icon play_icon"></a>
+		<a href="#" class="p_icon pause_icon"></a>
+		<a href="#" class="p_icon next_icon"></a>
+		<div class="left_tools">
+			<a href="#" class="tools t_list" title="列表循环"></a>
+			<a href="#" class="tools t_single" title="单曲循环"></a>
+			<a href="#" id="t_random" class="tools t_random" title="随机播放"></a>
+		</div>
+	</div>
+	<div class="b_middle"> 
+	<!-- 上下结构 -->
+		<div class="sing_info">
+			<a href="#" id="sing_name" class="sing_name" title="歌曲信息">BINGBIAN病变-鞠文娴</a>
+			<div class="info_group">
+				<a href="#" class="group sing_collect"></a>
+			    <a href="#" class="group sing_share"></a>
+			    <a href="#" class="group sing_more"></a>
+			</div>
+		</div>
+		<div class="sing_time">
+			<div id="start" class="time_start">00:00</div>
+			<div class="time_bar">
+				<div class="bar_played"></div>
+				<div class="bar_location"></div>
+				<div class="bar_rest"></div>
+			</div>
+			<div id="end" class="time_end">03:30</div>
+		</div>
+	</div>
+	<div class="b_right">
+		<a href="#"class="select_timbre1">lyric-1</a>
+		<a href="#"class="select_timbre2">lyric-2</a>
+		<div class="voice_adjust">
+			<a href="#" class="volume on"></a>
+			<a href="#" class="volume off"></a>
+			<div class="voice_bar">
+				<div class="voi_played"></div>
+				<div class="voi_location"></div>
+				<div class="voi_rest"></div>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+<!-- bottom end -->
+<!-- 歌曲信息存档 -->
+<textarea class="hidetext info0">烟花易冷-周杰伦</textarea>
+<textarea class="hidetext info1">再度重逢-陈珂</textarea>
+<textarea class="hidetext info2">有何不可-许嵩</textarea>
+<textarea class="hidetext info3">哑巴-薛之谦</textarea>
+<textarea class="hidetext info4">爱的华尔兹-郑爽</textarea>
+<textarea class="hidetext info5">烟火-陈翔</textarea>
+<textarea class="hidetext info6">无法原谅-李佳璐</textarea>
+<textarea class="hidetext info7">BINGBIAN病变-鞠文娴</textarea>
+<textarea class="hidetext info8">最长的旅途-李琦</textarea>
+<textarea class="hidetext info9">醉赤壁-林俊杰</textarea>
+<textarea class="hidetext info10">最美的期待-周笔畅</textarea>
+<!-- 歌词存档 -->
+<textarea id="lrc0" class="hidetext lrc0">
+[ti:烟花易冷]
+[ar:周杰伦]
+[al:跨时代]
+[00:00.21]烟花易冷
+[00:03.02]作词：方文山 作曲：周杰伦
+[00:04.53]演唱：周杰伦
+[00:06.07]
+[00:11.90]繁华声 遁入空门
+[00:14.33]折煞了世人
+[00:18.06]梦偏冷 辗转一生
+[00:20.49]情债又几本
+[00:24.12]如你默认 生死枯等
+[00:30.35]枯等一圈 又一圈的
+[00:33.98]年轮
+[00:35.95]
+[00:36.58]浮图塔 断了几层
+[00:39.35]断了谁的魂
+[00:42.81]痛直奔 一盏残灯
+[00:45.47]倾塌的山门
+[00:49.15]容我再等 历史转身
+[00:55.65]等酒香醇 等你弹
+[00:58.27]一曲古筝
+[01:01.50]
+[01:01.92]雨纷纷 旧故里草木深
+[01:07.92]我听闻 你始终一个人
+[01:14.30]斑驳的城门 盘踞着老树根
+[01:20.57]石板上回荡的是 再等
+[01:26.34]
+[01:26.76]雨纷纷 旧故里草木深
+[01:33.02]我听闻 你仍守着孤城
+[01:39.29]城郊牧笛声 落在那座野村
+[01:45.60]缘份落地生根是 我们
+[01:51.30]
+[01:54.56]听青春 迎来笑声
+[01:57.14]羡煞许多人
+[02:00.87]那史册 温柔不肯
+[02:03.38]下笔都太狠
+[02:06.98]烟花易冷 人事易分
+[02:13.21]而你在问 我是否还
+[02:17.05]认真
+[02:18.87]
+[02:19.33]千年后 累世情深
+[02:22.22]还有谁在等
+[02:25.71]而青史 岂能不真
+[02:28.33]魏书洛阳城
+[02:32.05]如你在跟 前世过门
+[02:38.51]跟着红尘 跟随我
+[02:41.28]浪迹一生
+[02:43.86]
+[02:44.76]雨纷纷 旧故里草木深
+[02:50.99]我听闻 你始终一个人
+[02:57.31]斑驳的城门 盘踞着老树根
+[03:03.43]石板上回荡的是 再等
+[03:09.24]
+[03:09.62]雨纷纷 旧故里草木深
+[03:15.88]我听闻 你仍守着孤城
+[03:22.19]城郊牧笛声 落在那座野村
+[03:28.45]缘份落地生根是 我们
+[03:34.15]
+[03:35.12]雨纷纷 旧故里草木深
+[03:36.57]我听闻 你始终一个人
+[03:38.51]斑驳的城门 盘踞着老树根
+[03:40.41]石板上回荡的是 再等
+[03:41.70]
+[03:41.93]雨纷纷 雨纷纷
+[03:43.26]旧故里草木深
+[03:45.20]我听闻 我听闻
+[03:46.68]你仍守着孤城
+[03:48.14]城郊牧笛声
+[03:50.19]落在那座野村
+[03:53.34]缘份落地生根是 我们
+[03:59.65]缘份落地生根是 我们
+[04:05.76]伽蓝寺听雨声盼 永恒
+[04:15.45]</textarea>
+<textarea id="lrc1" class="hidetext lrc1">
+[ti:再度重相逢]
+[ar:伍佰]
+[al:泪桥]
+[offset:500]
+[01:40.19][00:00.79]歌曲名称：再度重相逢
+[01:45.55][00:05.78]专辑名称：泪桥　　
+[01:49.09][00:11.15]出版年代：2003年
+[01:50.21][00:12.43]发行公司：艾?唱片
+[01:51.40][00:13.92]语言类别：国语
+[01:52.59][00:15.25]歌手名称：伍佰
+[01:56.74][00:20.28]歌手类别：台湾男歌手
+[01:58.21][00:21.43]词曲：作词：伍佰　作曲：伍佰  [00:23.31]你说人生如梦　
+[00:27.71]我说人生如秀
+[00:32.79]那有什么不同　
+[00:37.31]不都一样朦胧
+[00:42.12]朦胧中有你　
+[00:46.91]有你跟我就已经足够
+[00:51.70]你就在我的世界　
+[00:56.43]升起了彩虹[02:18.11][01:01.23]简单爱你心所爱　
+[02:23.44][01:06.49]世界也变的大了起来
+[02:27.59][01:10.67]所有花都为你开　
+[02:32.96][01:16.31]所有景物也为了你安排
+[02:56.62][02:37.40][01:20.71]我们是如此的不同　
+[03:01.91][02:42.75][01:25.98]肯定前世就已经深爱过
+[03:05.94][02:46.96][01:30.22]讲好了这一辈子　
+[03:10.91][02:51.54][01:34.92]再度重相逢
+
+
+[00:00.00][99:99.99]本站歌词来自一听音乐网</textarea>
+<textarea id="lrc2" class="hidetext lrc2">
+[ti:有何不可]
+[ar:许嵩]
+[al:]
+
+[00:00.48]有何不可
+[00:05.25]作词：许嵩 作曲：许嵩
+[00:09.23]演唱：许嵩
+[00:17.25]
+[01:57.55][00:22.80]天空好想下雨
+[02:00.25][00:25.42]我好想住你隔壁
+[02:02.43][00:27.48]傻站在你家楼下
+[02:04.57][00:29.76]抬起头 数乌云
+[02:07.07][00:32.19]如果场景里出现一架钢琴
+[02:09.32][00:34.43]我会唱歌给你听
+[02:11.55][00:36.53]哪怕好多盆水往下淋
+[02:16.11][00:41.52]夏天快要过去
+[02:19.15][00:44.02]请你少买冰淇淋
+[02:21.33][00:46.44]天凉就别穿短裙
+[02:23.74][00:48.75]别再那么淘气
+[02:25.90][00:51.06]如果有时不那么开心
+[02:28.10][00:53.28]我愿意将格洛米借给你
+[02:30.72][00:55.63]你其实明白我心意
+[02:34.19][00:59.11]为你唱这首歌 没有什么风格
+[02:38.41][01:03.47]它仅仅代表着 我想给你快乐
+[03:21.69][02:43.40][01:08.20]为你解冻冰河 为你做一只扑火的飞蛾
+[03:27.28][02:49.06][01:14.11]没有什么事情是不值得
+[03:31.23][02:53.04][01:17.97]为你唱这首歌 没有什么风格
+[03:35.77][02:57.52][01:22.44]它仅仅代表着 我希望你快乐
+[03:40.57][03:02.12][01:27.12]为你辗转反侧 为你放弃世界有何不可
+[03:45.93][01:33.01]夏末秋凉里带一点温热 有换季的颜色
+[03:55.58][03:12.34][01:38.94]
+[03:08.37]夏末秋凉里带一点温热</textarea>
+<textarea id="lrc3" class="hidetext lrc3">
+[ti:]
+[ar:]
+[al:]
+[by:]
+[offset:0]
+[00:02.54]哑巴
+[00:04.06]
+[00:06.02]原词曲：汪苏泷
+[00:07.57]新版作词：薛之谦,汪苏泷
+[00:08.89]新版作曲：薛之谦,汪苏泷
+[00:10.11]制作人：郑伟
+[00:11.19]编曲：郑伟
+[00:12.69]原唱：刘维
+[00:13.85]演唱：薛之谦
+[00:15.11]吉他：王山
+[00:16.20]合音：薛之谦
+[00:17.65]混音：郑伟
+[00:18.93]人声录制：莫家伟（上海广播大厦200Studio）
+[00:20.15]母带制作：全相彦（OK Master Studio）
+[00:21.69]
+[00:29.75]我们都迁就嘴巴
+[00:34.51]我们都憋着真话
+[00:38.69]我们都让爱先发芽
+[00:47.69]我们会接受惩罚
+[00:52.16]有一个变成哑巴
+[00:57.25]越退让越不会表达
+[01:04.44]所有的安静都是人造的冷清
+[01:09.65]所有的杂音在安慰后平静
+[01:14.71]我不需要证明
+[01:18.95]我不需要声音
+[01:23.79]
+[01:28.31]我就像一个哑巴一样
+[01:33.82]你翻译不了我的声响
+[01:40.54]怕腻烦过量
+[01:42.77]我举止要限量
+[01:48.95]你可以当我哑巴一样
+[01:55.02]你不会看见我的抵抗
+[02:04.59]请别怕我受伤 我自己会圆场
+[02:16.19]
+[02:36.60]我们会接受惩罚
+[02:40.43]有一个变成哑巴
+[02:44.53]越退让越不会表达
+[02:51.97]所有的安静都是人造的冷清
+[02:56.53]所有的杂音在安慰后平静
+[03:00.50]我不需要证明
+[03:04.79]我不需要声音
+[03:08.63]我就像一个哑巴一样
+[03:12.72]你翻译不了我的声响
+[03:17.72]怕腻烦过量
+[03:20.09]我举止要限量
+[03:25.52]你可以当我哑巴一样
+[03:29.61]你不会看见我的抵抗
+[03:34.63]请别怕我受伤 我自己会圆场
+[03:45.22]
+[03:49.68]我就像一个哑巴一样
+[03:56.85]反正我也不擅长抵抗
+[04:07.75]</textarea>
+<textarea id="lrc4" class="hidetext lrc4">
+[ti:爱的华尔兹]
+[ar:俞灏明&郑爽]
+[al:一起来看流星雨原声带]
+
+[00:01.18]爱的华尔兹
+[00:27.99]演唱：郑爽、俞灏明
+[00:28.86]
+[00:32.34]踮起脚尖 提起裙边
+[00:37.99]让我的手轻轻搭在你的肩
+[00:43.97]舞步偏偏 呼吸浅浅
+[00:49.48]爱的华尔兹多甜
+[00:53.85]
+[00:55.35]一步一步向你靠近
+[00:58.18]一圈一圈贴我的心
+[01:01.09]就像夜空舞蹈的流星
+[01:06.83]一步一步抱我更近
+[01:09.76]一圈一圈更确定
+[01:12.51]要陪你旋转不停
+[01:17.27]
+[01:18.60]没有谁能比你更合我的拍
+[01:21.23]没有谁能代替你给我依赖
+[01:24.16]甜蜜呀 幸福啊 圈圈圆圆转出来
+[01:29.88]没有谁能比你更合我的拍
+[01:32.80]没有谁能给我你给过的爱
+[01:35.69]我们的未来 是最美好的存在
+[01:44.20]
+[01:53.00]踮起脚尖 提起裙边
+[01:58.66]让我的手轻轻搭在你的肩
+[02:04.63]舞步偏偏 呼吸浅浅
+[02:10.07]爱的华尔兹多甜
+[02:14.65]
+[02:15.98]一步一步向你靠近
+[02:18.76]一圈一圈贴我的心
+[02:21.62]就像夜空舞蹈的流星
+[02:27.42]一步一步抱我更近
+[02:30.31]一圈一圈更确定
+[02:33.14]要陪你旋转不停
+[02:37.95]
+[02:39.09]没有谁能比你更合我的拍
+[02:41.80]没有谁能代替你给我依赖
+[02:44.73]甜蜜呀 幸福啊 圈圈圆圆转出来
+[02:50.40]没有谁能比你更合我的拍
+[02:53.39]没有谁能给我你给过的爱
+[02:56.25]我们的未来 是最美好的存在
+[03:03.64]
+[03:25.14]没有谁能比你更合我的拍
+[03:27.90]没有谁能代替你给我依赖
+[03:30.75]甜蜜呀 幸福啊 圈圈圆圆转出来
+[03:36.47]没有谁能比你更合我的拍
+[03:39.62]没有谁能给我你给过的爱
+[03:42.29]我们的未来 是最美好的
+[03:48.00]
+[03:48.06]没有谁能比你更合我的拍
+[03:50.94]没有谁能代替你给我依赖
+[03:53.82]甜蜜呀 幸福啊 圈圈圆圆转出来
+[04:02.64]没有谁能比你更合我的拍
+[04:05.35]没有谁能给我你给过的爱
+[04:08.62]我们的未来 是最美好的存在
+[04:18.57]</textarea>
+<textarea id="lrc5" class="hidetext lrc5">
+[ti:烟火]
+[ar:陈翔]
+[al:]
+[by:dlbdyh]
+[offset:0]
+[00:00.31]陈翔-烟火
+[00:04.10]作词：金鑫、严艺丹
+[00:06.10]作曲：高志远
+[00:08.60]
+[03:44.33][01:54.10][00:12.47]
+[03:48.61][02:03.01][00:15.35]
+[00:15.97]夜已深了 雨水的气味
+[00:20.85]渐渐蔓延
+[00:23.57]缓缓时钟习惯性失眠
+[00:29.84]墙面上摇晃的树影
+[00:34.78]有一点倔强独特的美
+[00:38.74]有些陌生 有些熟悉
+[00:42.43]似有若无的爱情
+[00:46.37]
+[02:03.31][00:47.01]天已亮了电视还没关
+[02:07.29][00:51.30]演着想念
+[02:10.41][00:54.55]哪句对白是谁的遗憾
+[02:15.66][00:59.68]相似的地点和时间
+[02:21.29][01:04.97]假装不见却又会遇见
+[02:25.47][01:09.34]我们之间 那么巧合
+[02:28.97][01:12.96]画面却已经走远
+[01:15.90]
+[03:06.17][02:32.31][01:16.15]你就像烟火的美丽 那么美丽
+[03:10.73][02:36.28][01:20.22]轻划过无人的天际
+[03:14.55][02:40.28][01:24.15]曾经交换过的秘密
+[03:18.23][02:44.04][01:27.65]紧紧埋藏在心底
+[03:21.61][02:47.42][01:31.28]你就像烟火的神秘 那么神秘
+[03:26.05][02:51.54][01:35.54]风随着你若即若离
+[03:29.67][02:55.79][01:39.42]留下触不到的可惜
+[03:33.61][02:59.29][01:43.38]陨落下了我们的回忆
+[03:42.82][03:06.04][01:50.60]</textarea>
+<textarea id="lrc6" class="hidetext lrc6">
+[ti:无法原谅]
+[ar:李佳璐]
+[al:]
+[by:习]
+[00:00.01]无法原谅
+[00:01.50]作词：新月 邱怡纶
+[00:03.00]作曲：刘永直 朴惠涓
+[00:04.50]演唱：李佳璐
+[00:06.00]
+[00:07.10]LRC制作：习 QQ：335020326
+[00:09.20]
+[00:10.34]为所有爱执着的痛
+[00:13.92]为所有恨执着的伤
+[00:17.46]我已分不清爱与恨
+[00:21.38]是否就这样
+[00:24.72]血和眼泪在一起滑落
+[00:28.16]我的心破碎风化
+[00:32.24]颤抖的手 却无法停止
+[00:37.39]无法原谅
+[00:41.99]我们的曾经燃烧成灰烬
+[00:47.99]无所谓了吗
+[00:51.58]也许吧 多残酷的童话
+[00:58.69]重复上演 谎言背叛谎言
+[01:04.95]可笑可悲啊 你的戏码
+[01:11.95]错爱一个人 注定被遗忘
+[01:19.20]让时间埋葬 什么都不剩下
+[01:27.38]为所有爱执着的痛
+[01:30.86]为所有恨执着的伤
+[01:34.55]我已分不清爱与恨
+[01:38.41]是否就这样
+[01:41.89]血和眼泪在一起滑落
+[01:45.20]我的心破碎风化
+[01:49.28]颤抖的手 却无法停止
+[01:54.38]无法原谅
+[01:59.97]
+[02:02.07]QQ：335020326
+[02:05.24]
+[02:07.28]谁能告诉我爱与恨
+[02:11.25]到头是否一样
+[02:14.48]血和眼泪在一起滑落
+[02:18.04]我的心破碎风化
+[02:21.94]颤抖的手 却无法停止
+[02:27.11]无法原谅
+[02:31.98]爱成恨 终究 绝望
+[02:42.41]</textarea>
+<textarea id="lrc7" class="hidetext lrc7">
+[ti:BINGBIAN病变 (女声版)]
+[ar:鞠文娴]
+[al:BINGBIAN病变（女声版）]
+[ly:Cubi / Fi9江澈]
+[mu:Jurrivh]
+[ma:Fi9江澈]
+[pu:苏州文弘]
+[by:童心撞地球]
+[total:247031]
+[offset:0]
+[00:00.065]BINGBIAN病变 (女声版) - 鞠文娴
+[00:03.017]作词：Cubi / Fi9江澈
+[00:04.269]作曲：Jurrivh
+[00:04.970]编曲：Fi9江澈
+[00:16.187]有天我睡醒看到我的身边没有你
+[00:20.321]在我的右边是你曾经喜欢的玩具
+[00:24.624]可当我站起身来在房间里寻找你
+[00:28.835]留下的只有带着你味道的一封信
+[00:33.363]就在昨天还一起看我们的照片
+[00:37.384]可现在让我感觉像烂剧里的主演
+[00:41.623]为什么这种事情会发生在我身边
+[00:45.813]是不是老天没能看到对你的疯癫
+[00:51.208]还想着 创造你的宇宙
+[00:53.339]但现在 已经被我清空
+[00:55.426]你让我 整个人都冰冻
+[00:57.543]还怎么 再次为你心动
+[00:59.667]Wakeme 不是你的意愿
+[01:01.836]离开我 开始新的起点
+[01:03.915]可能我 还会对你贪恋
+[01:06.056]谁让你 曾经让我疯癫
+[01:07.911]疯癫 那也是过去的画面
+[01:11.348]看往后的几天 我猜你也不会出现
+[01:15.551]我回想这几年 就像是要命的病变
+[01:19.848]你可能听不见 来自他对你的挂念
+[01:24.340]可能有点累
+[01:25.658]觉得对不对这是第几次在为你宿醉
+[01:28.890]没了我肩膀
+[01:29.951]你在谁身旁买的礼物变成了灰
+[01:32.854]曾经我多想
+[01:34.183]把你变漂亮看着别人羡慕你的模样
+[01:37.401]没关系有小熊陪着你看月亮
+[01:41.091]我已经看到跟你断电的过程
+[01:43.679]但我假装看不见
+[01:45.550]是不是要我变得像个厉鬼
+[01:47.917]才能进入你的世界
+[01:49.582]为什么不说再见
+[01:51.150]我猜你应该是不小心的忘记
+[01:53.854]都无所谓也有点累
+[01:55.898]也可以开始新的记忆
+[01:58.113]有天我睡醒看到我的身边没有你
+[02:02.332]在我的右边是你曾经喜欢的玩具
+[02:06.557]可当我站起身来在房间里寻找你
+[02:10.795]留下的只有带着你味道的一封信
+[02:15.338]就在昨天还一起看我们的照片
+[02:19.312]可现在让我感觉像烂剧里的主演
+[02:23.573]为什么这种事情会发生在我身边
+[02:27.783]是不是老天没能看到对你的疯癫
+[02:32.042]我不能够停止啊
+[02:34.204]这些年我对你的疯癫
+[02:36.096]还会戴上那条围巾吗
+[02:38.475]在每个寒风刺骨的冬天
+[02:40.847]还有每次送你在回家的路上
+[02:42.992]不经意间触碰到你的手
+[02:45.078]你穿裙子眨眼睛 望着我
+[02:47.458]那是让我心动的瞬间
+[02:49.326]那条十字路口
+[02:50.935]始终有你身上的气味
+[02:53.857]车水马龙过后的路灯下的身影
+[02:56.977]又会是谁
+[02:58.053]他想说我真的
+[02:59.093]喜欢你但是每次欲言又闭嘴
+[03:02.343]那时荒唐的男孩
+[03:04.452]又浑浊了几岁
+[03:06.020]有天我睡醒看到我的身边没有你
+[03:10.321]在我的右边是你曾经喜欢的玩具
+[03:14.541]可当我站起身来在房间里寻找你
+[03:18.796]留下的只有带着你味道的一封信
+[03:23.318]就在昨天还一起看我们的照片
+[03:27.266]可现在让我感觉像烂剧里的主演
+[03:31.548]为什么这种事情会发生在我身边
+[03:35.804]是不是老天没能看到对你的疯癫
+[00:90.90]LRC歌词大全：www.90lrc.cn </textarea>
+<textarea id="lrc8" class="hidetext lrc8">
+[00:01.63]最长的旅途
+[00:03.21]
+[00:05.96]作词：龚淑均  作曲： 文颖秋
+[00:07.74]演唱：张若昀
+[00:09.52]
+[00:30.52]风带着他走上
+[00:33.32]最长的旅途
+[00:37.79]一路跟着晚霞
+[00:40.73]再没有停下
+[00:45.40]拥着温暖星光
+[00:48.36]也吻过夜里的花
+[00:52.88]一路肆意流浪
+[00:55.67]还记得故乡吗
+[01:03.54]任生命穿梭
+[01:06.84]时间的角落
+[01:10.70]他静静看着
+[01:12.99]人们爱过和恨过
+[01:18.22]随时间漂泊
+[01:21.82]随它忘了或记得
+[01:25.94]他离开她的回忆
+[01:29.12]重复的活着
+[01:47.68]风带着他走上
+[01:50.11]最长的旅途
+[01:54.18]一路跟着晚霞
+[01:57.68]再没有停下
+[02:02.50]拥着温暖星光
+[02:05.15]也吻过夜里的花
+[02:09.85]一路肆意流浪
+[02:12.65]还记得故乡吗
+[02:16.51]任生命穿梭
+[02:20.32]时间的角落
+[02:23.36]他静静看着
+[02:26.55]人们爱过和恨过
+[02:31.54]随时间漂泊
+[02:35.29]随它忘了或记得
+[02:39.18]他离开她的回忆
+[02:41.57]重复的活着
+[02:46.75]任生命穿梭
+[02:50.25]时间的角落
+[02:54.13]他静静看着
+[02:56.45]人们爱过和恨过
+[03:01.52]随时间漂泊
+[03:05.33]随它忘了或记得
+[03:08.84]他离开她的回忆
+[03:11.68]重复的活着
+[03:16.75]他离开她的回忆
+[03:19.75]重复的活着
+[03:24.62]</textarea>
+<textarea id="lrc9" class="hidetext lrc9">
+[ti:醉赤壁]
+[ar:林俊杰]
+[al:JJ陆]
+
+[00:00.03]醉赤壁
+[00:06.50]作词:方文山 作曲:林俊杰
+[00:10.99]演唱：林俊杰
+[00:15.49]
+[00:24.73]落叶堆积了好几层 而我踩过青春
+[00:31.94]听见 前世谁在泪语纷纷
+[00:40.20]一次缘份结一次绳 我今生还在等
+[00:46.69]一世 就只能有一次的认真
+[00:52.80]
+[00:55.48]确认过眼神 我遇上对的人
+[01:01.73]我挥剑转身 而鲜血如红唇
+[01:08.11]前朝记忆渡红尘 伤人的不是刀刃
+[01:14.96]是你转世而来的魂
+[01:18.62]
+[01:19.28]确认过眼神 我遇上对的人
+[01:24.95]我策马出征 马蹄声如泪奔
+[01:31.20]青石板上的月光照进这山城
+[01:37.80]我一路的跟 你轮回声 我对你用情极深
+[01:46.33]
+[02:07.49]洛阳城旁的老树根 像回忆般延伸
+[02:14.42]你问 经过是谁的心跳声
+[02:22.42]我拿醇酒一坛饮恨 你那千年眼神
+[02:29.03]是我 醉醉坠入赤壁的 伤痕
+[02:35.08]
+[02:37.60]确认过眼神 我遇上对的人
+[02:44.06]我挥剑转身 而鲜血如红唇
+[02:50.65]前朝记忆渡红尘 伤人的不是刀刃
+[02:57.13]是你转世而来的魂
+[03:00.88]
+[03:01.66]确认过眼神 我遇上对的人
+[03:07.39]我策马出征 马蹄声如泪奔
+[03:13.51]青石板上的月光照进这山城
+[03:20.36]我一路的跟 你轮回声 我对你用情极深
+[03:27.97]
+[03:30.38]确认过眼神 我遇上对的人
+[03:36.70]我策马出征 马蹄声如泪奔
+[03:42.89]青石板上的月光照进这山城
+[03:49.82]我一路的跟 你轮回声 我对你用情极深
+[03:58.42]我一路的跟 你轮回声 我对你用情极深
+[04:11.07]</textarea>
+<textarea id="lrc10" class="hidetext lrc10">
+[ti:最美的期待]
+[ar:周笔畅]
+[al:最美的期待]
+[by:]
+[offset:0]
+[00:00.16]最美的期待 - 周笔畅
+[00:00.90]词：南征北战NZBZ
+[00:01.11]曲：南征北战NZBZ
+[00:01.32]制作人：南征北战NZBZ
+[00:01.60]总策划：王烨杨
+[00:01.81]发行人：桑爱
+[00:02.00]发行方：看见音乐（北京）有限公司
+[00:02.74]
+[00:20.38]我有一个梦像雨后彩虹
+[00:25.06]用所有泪水换来笑容
+[00:29.12]
+[00:29.78]还有一种爱穿越了人海
+[00:34.09]
+[00:34.68]拾起那颗迷失的尘埃
+[00:39.00]
+[00:39.53]你的呼吸越靠越近
+[00:43.67]
+[00:44.35]将我抱紧
+[00:46.72]
+[00:49.28]我睁开双眼想你在身边
+[00:53.89]无所谓永远还是瞬间
+[00:58.14]
+[00:58.69]静闭上了眼你却又浮现
+[01:03.52]带我远离寂寞的边缘
+[01:07.71]
+[01:08.26]忘了是非没有伤悲
+[01:13.16]无怨无悔
+[01:15.96]
+[01:17.95]我拥抱着爱当从梦中醒来
+[01:22.74]你执着地等待却不曾离开
+[01:27.58]舍不得分开在每一次醒来
+[01:32.42]不用再徘徊你就是我最美的期待
+[01:39.87]
+[02:01.15]我睁开双眼想你在身边
+[02:05.35]
+[02:05.87]无所谓永远还是瞬间
+[02:10.08]
+[02:10.61]静闭上了眼你却又浮现
+[02:15.57]带我远离寂寞的边缘
+[02:20.31]忘了是非没有伤悲
+[02:24.39]
+[02:25.00]无怨无悔
+[02:28.48]
+[02:29.92]我拥抱着爱当从梦中醒来
+[02:34.78]你执着地等待却不曾离开
+[02:39.56]舍不得分开在每一次醒来
+[02:44.39]不用再徘徊你就是我最美的期待
+[02:49.76]我拥抱着爱当从梦中醒来
+[02:53.92]你执着地等待却不曾离开
+[02:58.76]舍不得分开在每一次醒来
+[03:03.54]不用再徘徊你就是我最美的期待
+</textarea>
+
+
+
+<!-- javascript   引入jquery-->
+
+
+<audio id="myaudio" class="myaudio" loop></audio>
+
+<script type="text/javascript">
+
+$(function(){
+    var memoryoftime=0.0;
+	//播放默认设置
+	var audioDom = document.getElementById("myaudio");
+	//set the volume of the music
+	audioDom.volume=0.5;
+	//设置音乐索引变量
+	var ind=-1;
+	//set the default address of the player
+	audioDom.src="music/11.mp3";
+	    //获取音乐列表
+	var songlist=$(".m_songlist").children();
+	var len=songlist.length;
+	var musicArr=[];
+	var imagesArr=[];
+
+    
+	
+	
+	
+    //音量控制
+    //点击音量条调节音量大小
+	$(".voice_bar").mousedown(function(e){
+	var v_x=e.offsetX;
+	var v_wid=$(".voice_bar").width();
+	var v_rate=parseFloat(v_x/v_wid);
+	audioDom.volume=v_rate;
+	var v_per=v_rate*100+"%"
+	//调整音量大小显示
+	$(".voi_played").css("width",v_per);
+	$(".voi_location").css("margin-left",v_per);
+});
+	//点击音量按钮关闭音量
+	$(".on").click(function(){
+		$(".on").css("display","none");
+		$(".off").css("display","block");
+		$(".voi_played").css("width","0%");
+		$(".voi_location").css("margin-left","0%");
+		audioDom.volume=0;
+	});
+	//点击音乐关闭按钮打开音量调整为默认值0.5；
+	$(".off").click(function(){
+	    $(".on").css("display","block");
+	    $(".off").css("display","none");
+	    $(".voi_played").css("width","50%");
+		$(".voi_location").css("margin-left","50%");
+	    audioDom.volume=0.5;
+	});
+	
+//循环方式切换
+//单曲循环模式
+	$(".t_list").click(function(){
+		//切换图标
+	    $(".t_single").css("display","block");
+	    $(".t_list").css("display","none");
+		//清楚随机播放定时器
+	    window.clearInterval(cyclePlaySet);
+		//单曲循环
+		audioDom.loop = true;
+		});
+	//随机播放模式
+	$(".t_single").click(function(){
+		//切换图标
+		$(".t_single").css("display","none");
+		$(".t_random").css("display","block");
+		//祛除单曲循环
+		audioDom.loop = false;
+		//随机播放
+		randomPlaySet=setInterval(function(){ 
+		   if(audioDom.ended){
+			  memoryoftime=0.0;
+			  var random=Math.round(Math.random()*10);
+		      music_player(random);
+			   }
+		   },50);
+		});
+    //列表循环模式
+	$(".t_random").click(function(){
+		//切换图标
+		$(".t_list").css("display","block");
+		$(".t_random").css("display","none");
+		//清楚随机播放定时器
+		window.clearInterval(randomPlaySet);
+		//开始列表循环播放
+		cyclePlaySet=setInterval(function(){ 
+			if(audioDom.ended){
+				memoryoftime=0.0;
+				if(ind==10){
+					ind=0;
+				  }
+				else{ind+=1;}
+				music_player(ind);
+			   }
+		   },50);
+		   });
+		
+	   
+	   
+	//音乐播放器（切换歌词）
+	function music_player(ind){
+		 //锁定音乐源
+		 var html="";
+		 audioDom.src=musicArr[ind];
+		 document.getElementById("photo").src=imagesArr[ind];
+		 audioDom.currentTime=memoryoftime;
+		    	
+	     audioDom.play();
+		 songlist.eq(ind).find(".s_number span").addClass("num_gif")
+	     .parents(".s_list").siblings().find(".s_number span").removeClass("num_gif");
+		 songlist.eq(ind).addClass("asked").siblings().removeClass("asked");
+		 $(".play_icon").css("display","none");
+		 $(".pause_icon").css("display","block");
+		//进度条显示
+		 imeBarSet=setInterval(function(){
+			jindu=parseFloat(audioDom.currentTime/audioDom.duration);
+			jindu=jindu*100;
+					
+			var loc=jindu+"%"	
+			$(".bar_played").css("width",loc);
+			$(".bar_location").css("margin-left",loc);
+			//播放进度控制
+			//点击播放进度条调整播放进度
+			$(".time_bar").mousedown(function(e){
+				var t_x=e.offsetX;
+				var t_width=$(".time_bar").width();
+				var t_rate=parseFloat(t_x/t_width);
+				var t_per=t_rate*100+"%";
+				//播放进度显示
+				$(".bar_played").css("width",t_per);
+				$(".bar_location").css("margin-left",t_per);
+						
+				//播放时间设定
+				var t_axis=parseFloat(audioDom.duration*t_rate);
+				audioDom.currentTime=t_axis;
+				    });
+			 },500);
+			//音乐起止时间显示设定
+			timeSet=setInterval(function(){ 
+			//总时长设定
+			alltime=parseInt(audioDom.duration);
+			var t=alltime;
+			min_left="0"+parseInt(t/60);
+			if(alltime%60<10){
+				document.getElementById("end").innerHTML=min_left+":0"+alltime%60;
+				}
+				else{document.getElementById("end").innerHTML=min_left+":"+alltime%60;}
+						 
+			//播放时长显示
+			cur=parseInt(audioDom.currentTime);
+			var temp=cur;
+			minute=parseInt(temp/60);
+			if(minute<10){minute="0"+minute}
+			if(cur%60<10){
+				    document.getElementById("start").innerHTML=""+minute+":0"+cur%60+"";
+			}else{
+				     document.getElementById("start").innerHTML=""+minute+":"+cur%60+"";
+				     }
+				     memoryoftime=audioDom.currentTime;
+					}, 1000); 
+	       //获取歌曲信息并显示
+			
+			//获取歌曲信息
+			var info_string="info"+ind;
+			var info_index=document.getElementsByClassName(info_string);
+			var info_content=$(info_index).val();
+			
+			//将歌曲信息嵌入
+			$("#sing_name").html(info_content);
+			
+	         //歌词动态显示
+	         html="<p class='currentwords'>"+info_content+"</p>";
+	         //获取歌词内容 
+			 var word="lrc"+ind;
+			 var wordIndex = document.getElementsByClassName(word);
+			 var lrc = $(wordIndex).val();
+		     //对歌词内容预处理
+			 var lyrics = lrc.split("\n");
+			 var lrcObj = {};
+			 for(var i=0;i<lyrics.length;i++){
+			        var lyric = decodeURIComponent(lyrics[i]);
+			        var timeReg = /\[\d*:\d*((\.|\:)\d*)*\]/g;
+			        var timeRegExpArr = lyric.match(timeReg);
+			        if(!timeRegExpArr)continue;
+			        var clause = lyric.replace(timeReg,'');
+			        for(var k = 0,h = timeRegExpArr.length;k < h;k++) {
+			            var t = timeRegExpArr[k];
+			            var min = Number(String(t.match(/\[\d*/i)).slice(1)),
+			                sec = Number(String(t.match(/\:\d*/i)).slice(1));
+			            var time = min * 60 + sec;
+			            lrcObj[time] = clause;
+			        }
+			    }
+		     //歌词渲染内嵌到歌词框
+			 for(var i in lrcObj){
+					html+="<p class='showwords'"+"id="+i+">"+lrcObj[i]+'</p>';
+				}
+		
+		     //嵌入歌词
+			$("#jspPane").html(html);
+		
+			var child=$(".jspPane").children();
+			var index=1;
+			var index_replace=0; 
+		    //时间监控
+			checkSet = setInterval(function(){ 
+				timeOffset=parseInt(audioDom.currentTime);
+				
+				//动态歌词
+				if(lrcObj[timeOffset]){
+				
+				words_index=document.getElementById(timeOffset);
+				
+				if($(child.eq(index)).html()==""){index+=1}
+				if(index>1){child.eq(index_replace).empty();}
+				child.eq(index).addClass("currentwords").siblings().removeClass("currentwords");
+				index_replace=index;
+				
+				index+=1;	
+		    	}
+		       },1000);
+		  
+			//获取歌词内容
+			 // var word="lrc"+ind;
+			  //var  wordIndex = document.getElementsByClassName(word);
+			  //var lrc = $(wordIndex).val();
+			  //var mess="";
+			  //var html="";
+			  //var Arr =lrc.split("[");
+			  //for (var i=0;i<Arr.length;i++){
+				//	arr=Arr[i].split("]");
+					//mess=arr[1];
+					//if(mess){
+						//html+='<p class="ie8FontColor">'+mess+'</p>'
+					//}
+				//}
+				//嵌入歌词
+			   //$("#jspPane").html(html);
+  }
+	    
+	    //音乐暂停器
+function music_pause(){
+	//停止播放音乐
+	audioDom.pause();
+	//保存当前播放时间
+	audioDom.currentTime=memoryoftime;
+	    	   
+	songlist.eq(ind).find(".s_number span").removeClass("num_gif");
+	//切换图标
+	$(".play_icon").css("display","block");
+	$(".pause_icon").css("display","none");
+			}
+	//点击歌曲播放相应音乐并切换歌词并显示gif和歌曲图片
+	songlist.each(function(){
+	musicArr.push($(this).data("link"));
+	imagesArr.push($(this).data("images"));
+	}).on("click",function(){
+		
+		   ind=$(this).index();
+		   //时间缓存变量置零；
+		   memoryoftime=0;
+		   //调用音乐播放器
+		   music_player(ind);
+	            });
+	
+	//点击播放按钮播放默认音乐
+	$(".play_icon").click(function(){
+		 if(ind==-1){
+		   ind=10;
+		   }
+		   music_player(ind);
+		 
+	   });
+	//点击暂停
+	$(".pause_icon").click(function(){
+		//调用音乐暂停器
+		music_pause();
+	});
+	   
+	//上一首歌曲
+	$(".last_icon").click(function(){
+        var isRandom=$(".t_random").css("display");
+		   
+		//随机模式切歌
+		if(isRandom=="block"){
+			ind=Math.round(Math.random()*10);
+		   }
+		else{
+			 //调用音乐播放器
+			 if(ind==0){
+				 ind=10;
+			 }
+			 else{
+				 ind-=1;
+			 }
+			 }
+			 memoryoftime=0.0;
+			 music_player(ind);
+		});
+	   
+	   //下一首歌曲
+	 $(".next_icon").click(function(){
+		 var isRandom=$(".t_random").css("display");
+		   
+		 //随机模式切歌
+		 if(isRandom=="block"){
+			 ind=Math.round(Math.random()*10);
+		   }
+		 else{
+			
+			 if(ind==10){
+				 ind=0;
+			 }
+			 else{
+				 ind+=1;
+			 } 
+		   } 
+		   //调用音乐播放器
+			 memoryoftime=0.0;
+			 music_player(ind);
+		});
+	  
+	   
+});
+</script>
+
+
+</body>
+</html>
+
+
